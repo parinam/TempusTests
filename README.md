@@ -19,10 +19,10 @@ This project has automated test cases that test the upload, search and linking f
 
 ## Running Tests:
 
-Since we are using docker to run the tests, all the dependencies are handled in the Dockerfile.</br>
-To run the test suite: *docker-compose run --rm -T tempus.</br>
-This will pull the latest selenium hub, chrome and firefox(3.3) nodes and install dependencies, run the tests and show the results.</br>
-To clean up after test run:  *docker kill $(docker ps -q);docker rm $(docker ps -a -q);docker rmi $(docker images -q)
+* Since we are using docker to run the tests, all the dependencies are handled in the Dockerfile.
+* To run the test suite: *docker-compose run --rm -T tempus.
+* This will pull the latest selenium hub, chrome and firefox(3.3) nodes and install dependencies, run the tests and show the results.
+* To clean up after test run:  *docker kill $(docker ps -q);docker rm $(docker ps -a -q);docker rmi $(docker images -q)
 
 
 ## Tests : 

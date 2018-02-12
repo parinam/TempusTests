@@ -4,8 +4,8 @@ This project has automated test cases that test the upload, search and linking f
 
 ## Prerequisites
 
-Docker: https://docs.docker.com/engine/installation/
-Docker Compose: https://docs.docker.com/compose/install/
+* Docker: https://docs.docker.com/engine/installation/1
+* Docker Compose: https://docs.docker.com/compose/install/
 
 ## SetUp:
 

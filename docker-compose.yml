@@ -1,0 +1,57 @@
+#docker-compose file for Tempus Tests
+#Pulls in the latest selenium hub, chrome and firefox(3.3) nodes
+#To Run : docker-compose run --rm -T tempus
+version: '3'
+services:
+  selenium_hub:
+    image: selenium/hub:latest
+    container_name: selenium_hub
+    ports:
+      - "4444:4444"
+    environment:
+      - GRID_TIMEOUT=120000
+      - GRID_BROWSER_TIMEOUT=120000
+      - GRID_THROW_ON_CAPABILITY_NOT_PRESENT=true
+
+  nodechrome:
+    image: selenium/node-chrome:latest
+    depends_on:
+      - selenium_hub
+    ports:
+      - 5900
+    environment:
+      - no_proxy=localhost
+      - HUB_PORT_4444_TCP_ADDR=selenium_hub
+      - HUB_PORT_4444_TCP_PORT=4444
+      - NODE_MAX_INSTANCES=5
+      - NODE_MAX_SESSION=5
+    volumes:
+      - /dev/shm:/dev/shm
+      - ./data/:/home/tempus/data
+
+  nodefirefox:
+    image: selenium/node-firefox:3.3
+    depends_on:
+      - selenium_hub
+    ports:
+      - 5900
+    environment:
+      - no_proxy=localhost
+      - HUB_PORT_4444_TCP_ADDR=selenium_hub
+      - HUB_PORT_4444_TCP_PORT=4444
+      - NODE_MAX_INSTANCES=5
+      - NODE_MAX_SESSION=5
+    volumes:
+      - /dev/shm:/dev/shm
+      - ./data/:/home/tempus/data
+
+  tempus:
+    build: .
+    links:
+      - selenium_hub
+      - nodechrome
+      - nodefirefox
+    environment:
+      selenium_hub: 4444
+    expose:
+      - "4444"

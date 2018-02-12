@@ -34,7 +34,7 @@ To clean up after test run:  *docker kill $(docker ps -q);docker rm $(docker ps 
   we also make sure we see the same text on the redirected page on an empty search query.
  
 * randonButton.js: Click on the random button.
-* Random Button Test: Click on the random button and make sure we are redirected.
+    * Random Button Test: Click on the random button and make sure we are redirected.
  
 ## Todo: Just a few ideas to expand on the testing.
 * Boundary Value Analysis: According to the Imgur documentation(https://help.imgur.com/hc/en-us/articles/210076663-Upload-Images)

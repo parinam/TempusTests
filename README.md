@@ -2,6 +2,11 @@
 
 This project has automated test cases that test the upload, search and linking functionality of Imgur.com.
 
+## Prerequisites
+
+Docker: https://docs.docker.com/engine/installation/
+Docker Compose: https://docs.docker.com/compose/install/
+
 ## SetUp:
 
 * bin: The bin directory has the selenium jar file, the chrome driver and the gecko driver.
